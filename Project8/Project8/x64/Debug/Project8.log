@@ -1,0 +1,4 @@
+﻿  Source.cpp
+d:\project8\project8\source.cpp(48): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+d:\project8\project8\source.cpp(215): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Project8.vcxproj -> D:\Project8\x64\Debug\Project8.exe
