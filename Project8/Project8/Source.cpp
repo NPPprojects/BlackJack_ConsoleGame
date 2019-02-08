@@ -146,7 +146,40 @@ void Pre_Start()                //This function is to create a menu
     {
     case 2:
     {
-      std::cout << "Rules" << std::endl;
+      std::cout << "///////////////////////////////////////////////////////////////////////" << std::endl; 
+      std::cout << "                                                                      " << std::endl;
+      std::cout << "                                Rules                                 " << std::endl;
+      std::cout << "                                                                      " << std::endl;
+      std::cout << "///////////////////////////////////////////////////////////////////////" << std::endl;
+      std::cout << "                                                                      " << std::endl;
+      std::cout << "To win this game acumulate 1500 in your wallet from bets in blackjack." << std::endl;
+      std::cout << "You start off wtih 500, every round you can bet as much as you like." << std::endl;
+      std::cout << "Winning a round doubles the money you get bet." << std::endl;
+      std::cout << "Losing a round forfeits the bet." << std::endl;
+      std::cout << "If your wallet is empty you lose." << std::endl;
+      std::cout << "                                                                      " << std::endl;
+      std::cout << "///////////////////////////////////////////////////////////////////////" << std::endl;
+      std::cout << "                                                                      " << std::endl;
+      std::cout << "                           BlackJack Rules                            " << std::endl;
+      std::cout << "                                                                      " << std::endl;
+      std::cout << "///////////////////////////////////////////////////////////////////////" << std::endl;
+      std::cout << "                                                                      " << std::endl;
+      std::cout << "Every round you start and the dealer draw two cards." << std::endl;
+      std::cout << "The dealer's second card stays hidden until you stand." << std::endl;
+      std::cout << "The dealer's second card stays hidden until you stand." << std::endl;
+      std::cout << "If your starting hand has a value of 21 you win the round." << std::endl;
+      std::cout << "If your total is below 21 you can either hit or stand." << std::endl;
+      std::cout << "If you hit and you are still below or equal to 21 you can hit." << std::endl;
+      std::cout << "If you hit and you go over 21 you lose the round." << std::endl;
+      std::cout << "IF you choose to stand the dealer will reveal his second card." << std::endl;
+      std::cout << "The Dealer will draw cards until his total card value in his hand is" << std::endl;
+      std::cout << "equal or over 17 at which point he will stand." << std::endl;
+      std::cout << "If the Dealer goes over 21 he busts and you win the round." << std::endl;
+      std::cout << "If its a draw where both the player and the Dealer have the same" << std::endl;
+      std::cout << " total card value the oringal bet is returned to to the player wallet." << std::endl;
+      std::cout << "                                                                      " << std::endl;
+      std::cout << "///////////////////////////////////////////////////////////////////////" << std::endl;
+      std::cout << "                                                                      " << std::endl;
       break;
     }
     case 3:
@@ -257,6 +290,7 @@ void start()
     {
       std::cout << "Would you like to hit(1) or stand(2)?" << std::endl;
       std::cin >> input;
+      LoopPreventer(input);
       switch (input)
       {
       case 1:
@@ -405,13 +439,22 @@ void start()
           Dealer_turn = false;
           turn = false;
           GameBet = true;
+          if (player.wallet >= 1500)
+          {
+            std::cout << "Congratulations you made: " << player.wallet <<" You win!!!" << std::endl;
+            std::cout << "Returning to main menu" << std::endl;
+            std::system("pause");
+            std::system("CLS");
+
+            Start_Game = false;
+          }
         }
         break;
         turn = false;
       }
       default:
       {
-        std::cout << "Inccorrect Input.Try Again" << std::endl;
+        LoopPreventer(input);
       }
       }
     }
